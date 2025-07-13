@@ -68,7 +68,7 @@
                             <li class="nav-item"><a class="nav-link" href="#about">Register</a></li>
                             <li class="nav-item"><a class="nav-link" href="#services">Other Services</a></li>
                             <li class="nav-item"><a class="nav-link" href="#agent">FAQ</a></li>
-                           
+
 
                             <!-- User Dropdown aligned to the right -->
                             <li class="nav-item ms-auto me-3">
@@ -86,10 +86,9 @@
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item" href="#">Details</a>
+                                        <li>
                                             <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#CurrentOrder">Current Order</a>
                                             <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#CompletedOrder">Completed Order</a>
-
                                             <a class="dropdown-item text-danger logout" href="index.html">Logout</a>
                                         </li>
                                     </ul>
@@ -163,10 +162,10 @@
                 </div>
                 <div class="modal-body">
                     <form id="umrahForm">
-                        <input type="text" class="form-control mb-3" id="name" placeholder="Enter your name" required>
+                        <input type="text" class="form-control mb-3" id="name" placeholder="Enter your name">
                         <div class="row">
-                            <div class="col-md-6"><input type="date" class="form-control mb-3" id="date" required></div>
-                            <div class="col-md-6"><input type="time" class="form-control mb-3" id="time" required></div>
+                            <div class="col-md-6"><input type="date" class="form-control mb-3" id="date"></div>
+                            <div class="col-md-6"><input type="time" class="form-control mb-3" id="time"></div>
                         </div>
                         <button type="submit" class="btn custom-btn2 w-100">Confirm</button>
                     </form>
@@ -454,7 +453,7 @@
                         <div class="order-id-bar">
                             6189B18264BHka790aHefd0
                             <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
-                        </div>
+                </div>
                         <div class="row-flex">
                             <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
                             <div class="details">
@@ -463,10 +462,10 @@
                                 <div><span>On behalf of:</span> My Wife (Zainab)</div>
                                 <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
                                 <div><span>Performer Name:</span> Abdul Moiz</div>
-                            </div>
-                        </div>
+            </div>
+        </div>
                     
-                    </div>
+    </div>
 
                      <!-- static completed order card 2-->
                      <div class="current-order-card">
@@ -1022,7 +1021,7 @@
 
             // Show success message
             alert('Umrah request submitted successfully!');
-            document.getElementById('umrahForm').reset();
+                document.getElementById('umrahForm').reset();
             
             // Close modal
             const modal = bootstrap.Modal.getInstance(document.getElementById('Umrahform'));

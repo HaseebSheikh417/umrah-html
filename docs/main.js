@@ -77,6 +77,26 @@ document.addEventListener('scroll', toggleScrollTop);
 
 AOS.init();
 
+// Function to close sign-in modal and scroll to register section
+function closeSignInAndScrollToRegister() {
+    // Close the sign-in modal
+    const signInModal = bootstrap.Modal.getInstance(document.getElementById('signin'));
+    if (signInModal) {
+        signInModal.hide();
+    }
+    
+    // Scroll to the register section after a short delay
+    setTimeout(() => {
+        const registerSection = document.getElementById('register_100');
+        if (registerSection) {
+            registerSection.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        }
+    }, 300);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   if (window.location.hash) {
       let target = document.querySelector(window.location.hash);

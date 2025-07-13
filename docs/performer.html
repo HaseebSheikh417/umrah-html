@@ -80,10 +80,9 @@
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
-                                        <li><a class="dropdown-item" href="#">Details</a>
-                                            <a class="dropdown-item " href="#" data-bs-toggle="modal"
-                                                data-bs-target="#dataModal">Current Request</a>
-                                            <a class="dropdown-item " href="#">Request Completed</a>
+                                        <li>
+                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#CurrentOrder">Current Order</a>
+                                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#CompletedOrder">Completed Order</a>
                                             <a class="dropdown-item text-danger logout" href="index.html">Logout</a>
                                         </li>
                                     </ul>
@@ -150,226 +149,8 @@
         </div>
     </section>
 
-    <!-- Current Request Modal -->
-    <div class="modal fade" id="dataModal" tabindex="-1" aria-labelledby="dataModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="dataModalLabel">Current Requests</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="card border-0 shadow-sm mb-3">
-                                <div class="card-body">
-                                    <h6 class="card-title text-primary mb-3">Request #1</h6>
-                                    <div class="mb-2">
-                                        <strong>Name:</strong> Ahmed Ali
-                                    </div>
-                                    <div class="mb-2">
-                                        <strong>Date:</strong> 25 February 2025
-                                    </div>
-                                    <div class="mb-2">
-                                        <strong>Time:</strong> 08:00 AM
-                                    </div>
-                                    <div class="mb-2">
-                                        <strong>On Behalf Of:</strong> Ahmed Ali
-                                    </div>
-                                    <div class="mb-2">
-                                        <strong>Amount:</strong> USD 99.00
-                                    </div>
-                                    <button class="btn btn-dark mt-2 w-100" data-bs-dismiss="modal" onclick="showConfirmationModal()">Accept</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="card border-0 shadow-sm mb-3">
-                                <div class="card-body">
-                                    <h6 class="card-title text-primary mb-3">Request #2</h6>
-                                    <div class="mb-2">
-                                        <strong>Name:</strong> Fatima Khan
-                                    </div>
-                                    <div class="mb-2">
-                                        <strong>Date:</strong> 28 February 2025
-                                    </div>
-                                    <div class="mb-2">
-                                        <strong>Time:</strong> 10:00 AM
-                                    </div>
-                                    <div class="mb-2">
-                                        <strong>On Behalf Of:</strong> Fatima Khan
-                                    </div>
-                                    <div class="mb-2">
-                                        <strong>Amount:</strong> USD 99.00
-                                    </div>
-                                    <button class="btn btn-dark mt-2 w-100" data-bs-dismiss="modal" onclick="showConfirmationModal()">Accept</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-body">
-                            <h6 class="card-title text-info mb-3">Additional Information</h6>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-2">
-                                        <strong>Reason:</strong> Health issues preventing travel
-                                    </div>
-                                    <div class="mb-2">
-                                        <strong>Medical Certificate:</strong> 
-                                        <span class="badge bg-info">Uploaded</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="mb-2">
-                                        <strong>Contact Number:</strong> +966 50 123 4567
-                                    </div>
-                                    <div class="mb-2">
-                                        <strong>Email:</strong> ahmed.ali@email.com
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Confirmation Modal -->
-    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Request has been accepted successfully!
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-dark w-100" data-bs-dismiss="modal"
-                        onclick="showDetailsModal()">Proceed</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- New Modal (Checklists + Image Upload) -->
-    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="detailsModalLabel">Complete Your Process</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body ms-5">
-                    <form id="processForm" class="w-100" novalidate>
-                        <!-- Checkboxes -->
-                        <div class="d-flex align-items-center w-100 mb-2">
-                            <label class="form-check-label me-2" for="niyat">Intention</label>
-                            <input class="form-check-input" type="checkbox" id="niyat" required>
-                        </div>
-
-                        <!-- File Upload with Label Next to Input -->
-                        <div class="d-flex align-items-center w-100 mb-2">
-                            <label class="form-label me-2 m-0" for="ehramImage">In Ehram</label>
-                            <input class="form-control form-control-sm w-50" type="file" id="ehramImage"
-                                accept="image/*" required>
-                        </div>
-
-                        <div class="d-flex align-items-center w-100 mb-2">
-                            <label class="form-check-label me-2" for="arrivalMakkah">Arrival in Makkah</label>
-                            <input class="form-check-input" type="checkbox" id="arrivalMakkah" required>
-                        </div>
-
-                        <div class="d-flex align-items-center w-100 mb-2">
-                            <label class="form-label me-2 m-0" for="baltImage">After Balt</label>
-                            <input class="form-control form-control-sm w-50" type="file" id="baltImage" accept="image/*"
-                                required>
-                        </div>
-
-                        <div class="d-flex align-items-center w-100 mb-2">
-                            <label class="form-check-label me-2" for="arrivalSaee">Arrival for Saee</label>
-                            <input class="form-check-input" type="checkbox" id="arrivalSaee" required>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer w-100">
-                    <button type="submit" class="btn custom-btn2 w-100" onclick="submitProcessForm()"
-                        data-bs-toggle="modal" data-bs-target="#orderCompleted">Submit</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="orderCompleted" tabindex="-1" aria-labelledby="confirmationModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <i class="text-center fas fa-check-circle display-4 mb-3" style="color: #c79d5c;"></i>
-                    Umrah has been Performed!
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Show Details Modal
-        function showDetailsModal() {
-            let detailsModal = new bootstrap.Modal(document.getElementById('detailsModal'));
-            detailsModal.show();
-        }
-
-        // Form Validation and Submission
-        function submitProcessForm() {
-            const form = document.getElementById('processForm');
-
-            if (!form.checkValidity()) {
-                form.classList.add('was-validated');
-                return;
-            }
-
-            // If all fields are valid, process the data
-            console.log('Form is valid. Proceeding with submission...');
-
-            // Clear form after successful validation
-            form.reset();
-            form.classList.remove('was-validated');
-
-            // Hide modal after submission
-            let detailsModal = bootstrap.Modal.getInstance(document.getElementById('detailsModal'));
-            detailsModal.hide();
-        }
-
-        // Expose functions globally
-        window.showDetailsModal = showDetailsModal;
-        window.submitProcessForm = submitProcessForm;
-    </script>
-
-    <script>
-        // Show Confirmation Modal
-        function showConfirmationModal() {
-            let confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
-            confirmationModal.show();
-        }
-
-        // Expose function globally
-        window.showConfirmationModal = showConfirmationModal;
-    </script>
-
-    <!-- performer Section -->
-    <section class="agent-section" id="perform">
+     <!-- performer Section -->
+     <section class="agent-section" id="perform">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-5">
@@ -472,6 +253,583 @@
             </div>
         </div>
     </section>
+
+    <!-- Current Order Modal -->
+    <div class="modal fade" id="CurrentOrder" tabindex="-1" aria-labelledby="dataModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background: transparent; box-shadow: none; border: none;">
+                <!-- Modal Header Start -->
+                <div class="modal-header current-order-modal-header">
+                    <h5 class="modal-title">Current Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Modal Header End -->
+                <div class="modal-body current-order-modal-body p-0">
+
+                    <!-- static current order card 1-->
+                    <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd0
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> Awaiting</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                        <button class="btn-accept" data-bs-toggle="modal" data-bs-target="#confirmationModal">
+                            <i class="fa fa-check me-2"></i>Accept Order
+                        </button>
+                    </div>
+
+                     <!-- static current order card 2-->
+                     <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd1
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> In Process</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                        <button class="btn-accept" disabled>
+                            <i class="fa fa-check me-2"></i>Already Accepted
+                        </button>
+                    </div>
+
+                    <!-- static current order card 1-->
+                    <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd0
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> Awaiting</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                        <button class="btn-accept" data-bs-toggle="modal" data-bs-target="#confirmationModal">
+                            <i class="fa fa-check me-2"></i>Accept Order
+                        </button>
+                    </div>
+
+                     <!-- static current order card 2-->
+                     <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd1
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> In Process</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                        <button class="btn-accept" disabled>
+                            <i class="fa fa-check me-2"></i>Already Accepted
+                        </button>
+                    </div>
+
+                    <!-- static current order card 1-->
+                    <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd0
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> Awaiting</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                        <button class="btn-accept" data-bs-toggle="modal" data-bs-target="#confirmationModal">
+                            <i class="fa fa-check me-2"></i>Accept Order
+                        </button>
+                    </div>
+
+                     <!-- static current order card 2-->
+                     <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd1
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> In Process</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                        <button class="btn-accept" disabled>
+                            <i class="fa fa-check me-2"></i>Already Accepted
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content confirmation-modal-content">
+                <div class="modal-header confirmation-modal-header">
+                    <div class="d-flex align-items-center">
+                        <div class="confirmation-icon">
+                            <i class="fa fa-question-circle"></i>
+                        </div>
+                        <h5 class="modal-title" id="confirmationModalLabel">Confirm Order Acceptance</h5>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body confirmation-modal-body">
+                    <div class="confirmation-content">
+                        <div class="confirmation-message">
+                            <i class="fa fa-info-circle text-primary"></i>
+                            <p>Are you sure you want to accept this order?</p>
+                        </div>
+                        <div class="order-summary">
+                            <h6>Order Summary:</h6>
+                            <div class="summary-item">
+                                <span class="label">Order ID:</span>
+                                <span class="value">6189B18264BHka790aHefd0</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Customer:</span>
+                                <span class="value">Muhammad Saad</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">On behalf of:</span>
+                                <span class="value">My Wife (Zainab)</span>
+                            </div>
+                        </div>
+                        <div class="confirmation-warning">
+                            <i class="fa fa-exclamation-triangle text-warning"></i>
+                            <p>This action cannot be undone. Once accepted, the order will be assigned to you.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer confirmation-modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        <i class="fa fa-times me-2"></i>Cancel
+                    </button>
+                    <button type="button" class="btn btn-success confirm-btn" onclick="confirmAcceptOrder()">
+                        <i class="fa fa-check me-2"></i>Accept Order
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Completed Order Modal -->
+    <div class="modal fade" id="CompletedOrder" tabindex="-1" aria-labelledby="dataModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background: transparent; box-shadow: none; border: none;">
+                <!-- Modal Header Start -->
+                <div class="modal-header current-order-modal-header">
+                    <h5 class="modal-title">completed Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Modal Header End -->
+                <div class="modal-body completed-order-modal-body p-0">
+
+                    <!-- static completed order card 1-->
+                    <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd0
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> Completed</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                    
+                    </div>
+
+                     <!-- static completed order card 2-->
+                     <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd0
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> Completed</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                    
+                    </div>
+
+                     <!-- static completed order card 2-->
+                     <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd0
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> Completed</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- static completed order card 2-->
+                     <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd0
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> Completed</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- static completed order card 2-->
+                     <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd0
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> Completed</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- static completed order card 2-->
+                     <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd0
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> Completed</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- static completed order card 2-->
+                     <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd0
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> Completed</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- static completed order card 2-->
+                     <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd0
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> Completed</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- static completed order card 2-->
+                     <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd0
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> Completed</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- static completed order card 2-->
+                     <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd0
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> Completed</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- static completed order card 2-->
+                     <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd0
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> Completed</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- static completed order card 2-->
+                     <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd0
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> Completed</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- static completed order card 2-->
+                     <div class="current-order-card">
+                        <div class="order-id-bar">
+                            6189B18264BHka790aHefd0
+                            <span><i class="fa fa-copy" style="font-size:13px;cursor:pointer;"></i></span>
+                        </div>
+                        <div class="row-flex">
+                            <img src="assets/umrah.jpg" class="profile-img" alt="Profile">
+                            <div class="details">
+                                <div><span>Name:</span> Muhammad Saad</div>
+                                <div><span>Status:</span> Completed</div>
+                                <div><span>On behalf of:</span> My Wife (Zainab)</div>
+                                <div><span>Order Date:</span> 1st-July-2022 (Wed)</div>
+                                <div><span>Performer Name:</span> Abdul Moiz</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <!-- <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Request has been accepted successfully!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark w-100" data-bs-dismiss="modal"
+                        onclick="showDetailsModal()">Proceed</button>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- New Modal (Checklists + Image Upload) -->
+    <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailsModalLabel">Complete Your Process</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body ms-5">
+                    <form id="processForm" class="w-100" novalidate>
+                        <!-- Checkboxes -->
+                        <div class="d-flex align-items-center w-100 mb-2">
+                            <label class="form-check-label me-2" for="niyat">Intention</label>
+                            <input class="form-check-input" type="checkbox" id="niyat">
+                        </div>
+
+                        <!-- File Upload with Label Next to Input -->
+                        <div class="d-flex align-items-center w-100 mb-2">
+                            <label class="form-label me-2 m-0" for="ehramImage">In Ehram</label>
+                            <input class="form-control form-control-sm w-50" type="file" id="ehramImage"
+                                accept="image/*">
+                        </div>
+
+                        <div class="d-flex align-items-center w-100 mb-2">
+                            <label class="form-check-label me-2" for="arrivalMakkah">Arrival in Makkah</label>
+                            <input class="form-check-input" type="checkbox" id="arrivalMakkah">
+                        </div>
+
+                        <div class="d-flex align-items-center w-100 mb-2">
+                            <label class="form-label me-2 m-0" for="baltImage">After Balt</label>
+                            <input class="form-control form-control-sm w-50" type="file" id="baltImage" accept="image/*"
+                            >
+                        </div>
+
+                        <div class="d-flex align-items-center w-100 mb-2">
+                            <label class="form-check-label me-2" for="arrivalSaee">Arrival for Saee</label>
+                            <input class="form-check-input" type="checkbox" id="arrivalSaee">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer w-100">
+                    <button type="submit" class="btn custom-btn2 w-100" onclick="submitProcessForm()"
+                        data-bs-toggle="modal" data-bs-target="#orderCompleted">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="orderCompleted" tabindex="-1" aria-labelledby="confirmationModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <i class="text-center fas fa-check-circle display-4 mb-3" style="color: #c79d5c;"></i>
+                    Umrah has been Performed!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script>
+        // Show Details Modal
+        function showDetailsModal() {
+            let detailsModal = new bootstrap.Modal(document.getElementById('detailsModal'));
+            detailsModal.show();
+        }
+
+        // Form Validation and Submission
+        function submitProcessForm() {
+            const form = document.getElementById('processForm');
+
+            if (!form.checkValidity()) {
+                form.classList.add('was-validated');
+                return;
+            }
+
+            // If all fields are valid, process the data
+            console.log('Form is valid. Proceeding with submission...');
+
+            // Clear form after successful validation
+            form.reset();
+            form.classList.remove('was-validated');
+
+            // Hide modal after submission
+            let detailsModal = bootstrap.Modal.getInstance(document.getElementById('detailsModal'));
+            detailsModal.hide();
+        }
+
+        // Expose functions globally
+        window.showDetailsModal = showDetailsModal;
+        window.submitProcessForm = submitProcessForm;
+    </script> -->
+
+    <script>
+        // Show Confirmation Modal
+        function showConfirmationModal() {
+            let confirmationModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+            confirmationModal.show();
+        }
+
+        // Expose function globally
+        window.showConfirmationModal = showConfirmationModal;
+    </script>
+
 
     <footer>
         <div class="wrapper footer-wrapper ps-5">
@@ -634,6 +992,24 @@
     <script src="main.js" async></script>
     <!-- <script src="services.js"></script> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    
+    <script>
+        // Confirm Accept Order Function
+        function confirmAcceptOrder() {
+            // Close the confirmation modal
+            const confirmationModal = bootstrap.Modal.getInstance(document.getElementById('confirmationModal'));
+            if (confirmationModal) {
+                confirmationModal.hide();
+            }
+            
+            // Show success message
+            setTimeout(() => {
+                alert('Order accepted successfully! 🎉');
+            }, 300);
+        }
+    </script>
+    
+
 </body>
 
 </html>
